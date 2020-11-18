@@ -1,8 +1,8 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:one_widget_a_day/customscrollview.dart';
+import 'package:one_widget_a_day/draggable.dart';
 
 void main() {
   runApp(MyApp());
@@ -57,7 +57,14 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => myCustomScrollView()));
               },
+            ),
+            ElevatedButton(
+              child: Text('draggable'),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => DraggableScreen()));
+              },
             )
+
 
           ],
         ),
