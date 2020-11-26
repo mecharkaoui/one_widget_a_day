@@ -41,9 +41,8 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: ListView(
+
           children: <Widget>[
             Text('AlertDialog',),
             ElevatedButton(child: Text('Fucking click me'),
@@ -63,7 +62,60 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => DraggableScreen()));
               },
-            )
+            ),
+           /* Container(
+              width: 250,
+              height: 250,
+              child: CircularProgressIndicator(
+                value: null,
+                strokeWidth: 2,
+                backgroundColor: Colors.grey,
+
+              ),
+            ),*/
+            DataTable(
+              columns: [
+                DataColumn(label: Text('tidbit'),),
+                DataColumn(label: Text('progress'),),
+                DataColumn(label: Text('levels'),),
+
+
+              ],
+              rows: [
+                DataRow(
+                  cells: [
+                    DataCell(Text('bluetooth')),
+                    DataCell(Text('1/4')),
+                    DataCell(Text('2/3')),
+
+
+
+                  ]
+                ),
+                DataRow(
+                    cells: [
+                      DataCell(Text('UHF')),
+                      DataCell(Text('3/5')),
+                      DataCell(Text('1/1')),
+                    ]
+                ),
+                DataRow(
+                    cells: [
+                      DataCell(Text('UTI')),
+                      DataCell(Text('0/2')),
+                      DataCell(Text('0/1')),
+
+
+
+                    ]
+                )
+
+
+              ],
+            ),
+            myDismissible()
+
+
 
 
           ],
@@ -112,6 +164,24 @@ class myGridView extends StatelessWidget {
   }
 }
 
+class myDismissible extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Dismissible(
+      child: ListTile(
+        title: Container(
+            height:  100.0,
+            color: Colors.purple,
+            child: Text('not swiped'))
+      ),
+      background: Container(
+        child: Center(child: Text('bye bye')),
+        color: Colors.blue
+      ),
+      key: ValueKey(''),
+    );
+  }
+}
 
 
 // 12020-11-14 - Alert Diaglog
@@ -127,3 +197,4 @@ myFirstAlertDialog() {
   );
 
 }
+
