@@ -113,7 +113,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
               ],
             ),
-            myDismissible()
+            myDismissible(),
+            myFractionallySizedBox()
 
 
 
@@ -197,4 +198,30 @@ myFirstAlertDialog() {
   );
 
 }
+
+class myFractionallySizedBox extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final pWidth = MediaQuery.of(context).size.width;
+    return Row(
+      mainAxisSize: MainAxisSize.max,
+      children: [
+        Container(
+          width: 0.5 * pWidth,
+          height: 100.0,
+          child: Text('${pWidth * 0.8}'),
+          color: Colors.lightGreen,
+        ),
+        Container(
+          width: 0.5 * pWidth,
+          height: 100.0,
+          child: Text('${pWidth * 0.2}'),
+          color: Colors.blue,
+        )
+
+      ],
+    );
+  }
+}
+
 
